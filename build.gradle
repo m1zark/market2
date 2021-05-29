@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            url = "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.minecraftforge.gradle:ForgeGradle:3.+"
+        classpath "gradle.plugin.org.spongepowered:spongegradle:0.9.0"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: "org.spongepowered.plugin"
+
+version = modVersion
+group= modGroup
+archivesBaseName = modBaseName
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'nucleus'
+        url = 'http://repo.drnaylor.co.uk/artifactory/list/minecraft'
+    }
+    maven { url = 'https://jitpack.io' }
+    maven { url = "https://raw.github.com/FabioZumbi12/UltimateChat/mvn-repo/" }
+    ivy {
+        url "https://download.nodecdn.net/containers"
+        layout "pattern", {
+            artifact "/[organisation]/[module]/release/[revision]/[ext]"
+        }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
+
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'org.spongepowered:spongeapi:7.2.0'
+    compile 'org.projectlombok:lombok:1.18.10'
+    compile 'com.zaxxer:HikariCP:3.3.1'
+    compile 'reforged:server:8.2.0@Pixelmon-1.12.2-8.2.0-server.jar'
+}

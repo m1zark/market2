@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "market",
+    "name": "Market",
+    "description": "A market for players to sell items",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "m1zark"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
